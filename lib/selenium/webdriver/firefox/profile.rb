@@ -5,7 +5,16 @@ module Selenium
         include ProfileHelper
 
         VALID_PREFERENCE_TYPES   = [TrueClass, FalseClass, Integer, Float, String]
-        WEBDRIVER_EXTENSION_PATH = File.expand_path("/tmp/webdriver.xpi")
+        path_1 = File.expand_path("#{Dir.pwd}/webdriver.xpi")
+        path_2 = File.expand_path("#{Dir.pwd}/../webdriver.xpi")
+        if File.exists?(path_1)
+          WEBDRIVER_EXTENSION_PATH = File.expand_path(path_1)
+        elsif File.exists?(path_2)
+          WEBDRIVER_EXTENSION_PATH = File.expand_path(path_2)
+        else
+          WEBDRIVER_EXTENSION_PATH = File.expand_path("#{WebDriver.root}/selenium/webdriver/firefox/extension/webdriver.xpi")
+        end
+        
         WEBDRIVER_PREFS          = {
           :native_events    => 'webdriver_enable_native_events',
           :untrusted_certs  => 'webdriver_accept_untrusted_certs',
