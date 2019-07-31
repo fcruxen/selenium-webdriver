@@ -8,6 +8,7 @@ This gem provides Ruby bindings for WebDriver and has been tested to work on MRI
 
 ## Links
 
+
 * http://rubygems.org/gems/selenium-webdriver
 * http://selenium.googlecode.com/git/docs/api/rb/index.html
 * http://code.google.com/p/selenium/wiki/RubyBindings
